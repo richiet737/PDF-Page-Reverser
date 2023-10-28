@@ -1,4 +1,4 @@
-# PDF-Page-Reverser\n
+# PDF-Page-Reverser
 Reverse the page order of a PDF file. 
 Requires 
 Python3
