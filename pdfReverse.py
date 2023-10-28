@@ -1,13 +1,13 @@
 #!/Library/Frameworks/Python.framework/Versions/3.12/bin/python3
 # coding: utf-8
+# Created by Richard Bradshaw 28 Oct 2023
 
-# importing PyPDF2 library
-# get_doc_info.py
+# importing libraries
 from PyPDF2 import PdfReader, PdfWriter
 import os
 import sys
 
-
+#Check command line format
 def get_input():
     if len(sys.argv) < 2:
         print("./pdfReverse.py <fileName.pdf>")
@@ -22,19 +22,16 @@ def get_input():
         global path
         path = os.path.expanduser(apdf)
 
+# main function
+# open file to read
+# reverse the page order
+# write to file
 def get_info(path):
     with open(path, 'rb') as f:
         pdf = PdfReader(f)
-        #info = pdf.getDocumentInfo()
         number_of_pages = len(pdf.pages)
         print("processing", path, number_of_pages, "pages")
         
-        #print(info)
-        #author = info.author
-        #creator = info.creator
-        #producer = info.producer
-        #subject = info.subject
-        #title = info.title
         if number_of_pages == 1:
             sys.exit('only one page found')
             
