@@ -16,7 +16,7 @@ def get_input():
     for apdf in sys.argv[1:]:
         pdf_file = os.path.expanduser(apdf)
         if not pdf_file.endswith('.pdf'):
-            print("PDF file type required")
+            print("PDF file type required. Did you forget the extension (.pdf)?")
             sys.exit(1)
         
         global path
