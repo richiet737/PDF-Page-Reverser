@@ -19,8 +19,8 @@ def get_input():
             print("PDF file type required. Did you forget the extension (.pdf)?")
             sys.exit(1)
         
-        global path
         path = os.path.expanduser(apdf)
+        return path
 
 # main function
 # open file to read
@@ -39,7 +39,6 @@ def get_info(path):
         writer = PdfWriter()
         bpath, ext = os.path.splitext(path)
         pdfrev = os.path.basename(bpath + '_reversed' + ext)
-        #pdf_out = open(pdfrev, 'wb')
         
         # n is sequential page increase, r is the reversed page number
         for n in (reversed(range(0, number_of_pages))):
@@ -50,5 +49,5 @@ def get_info(path):
         pdf_out.close()
 
 if __name__ == '__main__':
-    get_input()
+    path = get_input()
     get_info(path)
